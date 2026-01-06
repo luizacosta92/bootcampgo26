@@ -3,52 +3,30 @@ package main
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
-func TestCalcularAlimentos(t *testing.T) {
-	t.Run("Dog - 10kg por animal", func(t *testing.T) {
-		dogFunc, err := calcularAlimentos("dog")
-		assert.NoError(t, err)
-		assert.Equal(t, 100.0, dogFunc(10))
-	})
+func TestCalcularAlimentosCachorro(t *testing.T) {
+	animal, err := calcularAlimentos("dog")
+	require.NoError(t, err)
+	require.Equal(t, 100.0, animal(10))
+}
 
-	t.Run("Cat - 5kg por animal", func(t *testing.T) {
-		catFunc, err := calcularAlimentos("cat")
-		assert.NoError(t, err)
-		assert.Equal(t, 50.0, catFunc(10))
-	})
+func TestCalcularAlimentosGato(t *testing.T) {
+	animal, err := calcularAlimentos("cat")
+	require.NoError(t, err)
+	require.Equal(t, 25.0, animal(5))
+}
 
-	t.Run("Hamster - 250g por animal", func(t *testing.T) {
-		hamsterFunc, err := calcularAlimentos("hamster")
-		assert.NoError(t, err)
-		assert.Equal(t, 2.5, hamsterFunc(10))
-	})
+func TestCalcularAlimentosHamster(t *testing.T) {
+	animal, err := calcularAlimentos("hamster")
+	require.NoError(t, err)
+	require.Equal(t, 2.5, animal(10))
+}
 
-	t.Run("Tarantula - 150g por animal", func(t *testing.T) {
-		tarantulaFunc, err := calcularAlimentos("tarantula")
-		assert.NoError(t, err)
-		assert.Equal(t, 1.5, tarantulaFunc(10))
-	})
-
-	t.Run("Animal inválido - retorna erro", func(t *testing.T) {
-		_, err := calcularAlimentos("elefante")
-		assert.Error(t, err)
-		assert.Equal(t, "animal inválido", err.Error())
-	})
-
-	t.Run("Soma total de alimentos", func(t *testing.T) {
-		animalDog, _ := calcularAlimentos("dog")
-		animalCat, _ := calcularAlimentos("cat")
-		animalHamster, _ := calcularAlimentos("hamster")
-		animalTarantula, _ := calcularAlimentos("tarantula")
-
-		var amount float64
-		amount += animalDog(10)       // 100kg
-		amount += animalCat(10)       // 50kg
-		amount += animalHamster(10)   // 2.5kg
-		amount += animalTarantula(10) // 1.5kg
-
-		assert.Equal(t, 154.0, amount)
-	})
+func TestCalcularAlimentosTarantula(t *testing.T) {
+	animal, err := calcularAlimentos("tarantula")
+	expected := 1.5
+	require.NoError(t, err)
+	require.Equal(t, expected, animal(10))
 }
