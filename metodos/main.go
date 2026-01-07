@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	fmt.Println("=== AULA 04 ===")
-
+/*
 	var p Product
 
 	produto1 := Product{
@@ -37,12 +37,28 @@ func main() {
 	p.GetAll()
 
 	fmt.Println("\n🔍 ===== BUSCA POR ID =====")
+	var idBuscado int
+	fmt.Print("Digite o ID do produto: ")
+	fmt.Scanln(&idBuscado)
 	
-	produto, ok := getById(1)
-	fmt.Printf("ID: 1 - %s\n", produto1.Name)
+	produto, ok := getById(idBuscado)
+	
 	if ok {
-		fmt.Println(produto.Name)
+		fmt.Printf("ID: %d - %s\n", produto.ID, produto.Name)
 	} else {
-		fmt.Println("Produto não encontrado")
+		fmt.Printf("Produto com ID %d não existe\n", idBuscado)
+	}*/
+
+	fmt.Println("\n👥 ===== EMPREGADOS =====")
+	person1 := Person{
+		ID:          1,
+		Name:        "João da Silva",
+		DateOfBirth: "1990-01-01",
 	}
+	employee1 := Employee{
+		ID:          1,
+		Position:    "Gerente",
+		Person:      person1,
+	}
+	employee1.PrintEmployee()
 }
