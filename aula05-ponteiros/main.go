@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import ( 
+	"fmt"
+)
 
 func main() {
 	fmt.Println("=== AULA 05 ===")
@@ -30,4 +32,5 @@ func main() {
 	fmt.Println("Preço do produto 2:", product2.CalculatePrice())
 	product3 := factory(Large, 100.0)
 	fmt.Println("Preço do produto 3:", product3.CalculatePrice())
+ 
 }

@@ -1,15 +1,31 @@
 package main
 
-import "fmt"
+import (
+	//"errors"
+	"fmt"
+)
 
 func main() {
 	fmt.Println("=== AULA 03 ===")
 
 	fmt.Println("--- Exercício: Imposto de Salário ---")
-	salario := 40000.0
-	imposto := ImpostoSalario(salario)
-	fmt.Println("Imposto de salário:", imposto)
+	salario, err := CalcularSalarioMensal(80,1000.0)
+	if err != nil {
+		fmt.Println("Erro:", err)
+	}
+	fmt.Println("Salário:", salario)
+//	salario := 150000.0
+//	err := validateSalary(salario)
+//
+//	if err != nil {
+//			fmt.Println(err)
+//		} else {
+//		fmt.Println("Must pay tax")
+//		imposto := ImpostoSalario(salario)
+//		fmt.Println("Imposto de salário:", imposto)
+//}
 
+//	}
 	/*fmt.Println("--- Exercício: Calcular Média ---")
 	media, err := CalcularMedia()
 	if err != nil {
