@@ -9,11 +9,21 @@ func main() {
 	fmt.Println("=== AULA 03 ===")
 
 	fmt.Println("--- Exercício: Imposto de Salário ---")
-	salario, err := CalcularSalarioMensal(80,1000.0)
+	
+	var horasTrabalhadas int
+	var valorHora float64
+
+	fmt.Print("Digite as horas trabalhadas: ")
+	fmt.Scanln(&horasTrabalhadas)
+	fmt.Print("Digite o valor da hora: ")
+	fmt.Scanln(&valorHora)
+	
+	salario, err := CalcularSalarioMensal(horasTrabalhadas, valorHora)
 	if err != nil {
 		fmt.Println("Erro:", err)
 	}
 	fmt.Println("Salário:", salario)
+	
 //	salario := 150000.0
 //	err := validateSalary(salario)
 //
@@ -24,7 +34,6 @@ func main() {
 //		imposto := ImpostoSalario(salario)
 //		fmt.Println("Imposto de salário:", imposto)
 //}
-
 //	}
 	/*fmt.Println("--- Exercício: Calcular Média ---")
 	media, err := CalcularMedia()
