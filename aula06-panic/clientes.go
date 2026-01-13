@@ -52,9 +52,8 @@ var clients = []Client{
 	{File: "002", Name: "Carolina", ID: 2, Phone: "11888888888", Address: "Rua B"},
 }
 
+func checkClientExists(id int) {
 
-func checkClientExists(id int)  {
-	
 	for _, client := range clients {
 		if client.ID == id {
 			panic(ErrClientExists)
@@ -62,8 +61,8 @@ func checkClientExists(id int)  {
 	}
 }
 
-func validateClientData(file, name string, id int, phone, address string) (bool, error)  {
-	
+func validateClientData(file, name string, id int, phone, address string) (bool, error) {
+
 	if file == "" {
 		return false, ErrEmptyFile
 	}
@@ -81,7 +80,6 @@ func validateClientData(file, name string, id int, phone, address string) (bool,
 	}
 	return true, nil
 }
-
 
 func registerClient(file, name string, id int, phone, address string) {
 	// Variável para rastrear se houve erro
