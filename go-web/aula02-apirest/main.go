@@ -5,9 +5,9 @@ import "net/http"
 
 func main() {
 	fmt.Println("Iniciando servidor na porta 8080")
-	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("pong"))
+		w.Write([]byte("hello world"))
 	})
 	http.ListenAndServe(":8080", nil)
 }
