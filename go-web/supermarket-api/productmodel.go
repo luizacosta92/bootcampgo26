@@ -1,7 +1,7 @@
 package main
 
 type Product struct {
-	ID          int     `json:"id"`           // Campo público (maiúscula) + tag JSON
+	ID          int     `json:"id"`           
 	Name        string  `json:"name"`         // Go: Name → JSON: name
 	Quantity    int     `json:"quantity"`     // Quantidade em estoque
 	CodeValue   string  `json:"code_value"`   // Código do produto
