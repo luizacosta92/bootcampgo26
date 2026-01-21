@@ -4501,11 +4501,11 @@
   },
   {
     "id": 501,
-    "name": "Luiza",
-    "quantity": 0,
-    "code_value": "",
-    "is_published": false,
-    "expiration": "",
-    "price": 0
+    "name": "Cheese - St. Andre",
+    "quantity": 60,
+    "code_value": "S73191B",
+    "is_published": true,
+    "expiration": "12/04/2022",
+    "price": 50.15
   }
 ]

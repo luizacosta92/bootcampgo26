@@ -5,9 +5,38 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/gin-gonic/gin"
 )
 
-// 📚 VARIÁVEL GLOBAL: Nossa "biblioteca" de produtos na memória
+// 🚀 FUNÇÃO PRINCIPAL - O "maestro" que inicia tudo
+
+func main() {
+	// 1. Carrega os produtos do JSON quando o servidor inicia
+	fmt.Println("📚 Carregando produtos...")
+	if err := loadProducts(); err != nil {
+		fmt.Printf("❌ Erro: %v\n", err)
+		return
+	}
+
+	// 2. Registra as rotas (como colocar placas indicativas)
+	router := gin.Default()
+	Routes(router)
+	// 3. Inicia o servidor
+	fmt.Println("🚀 Servidor rodando em http://localhost:8080")
+	fmt.Println("📍 Rotas disponíveis:")
+	fmt.Println("   GET    /products")
+	fmt.Println("   GET    /products/:id")
+	fmt.Println("   POST   /products")
+	fmt.Println("   PUT    /products/:id")
+	fmt.Println("   DELETE /products/:id")
+
+	if err := router.Run(":8080"); err != nil {
+		fmt.Printf("❌ Erro ao iniciar servidor: %v\n", err)
+	}
+}
+
+// 📚 VARIÁVEL GLOBAL:
 // Quando o servidor inicia, carregamos tudo do JSON aqui
 var products []Product
 
